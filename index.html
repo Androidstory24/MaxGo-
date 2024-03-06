@@ -1,170 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página con Encabezado y Sección de Títulos</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Incluir Font Awesome -->
-  <style>
-    header {
-      display: flex;
-      justify-content: space-between;
-      background-color: white;
-      color: black;
-      padding: 5px 10px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
 
-    .left-side {
-      flex-basis: 65%;
-      color: black;
-      font-size: 24px;
-      font-weight: bold;
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
-    }
+        header {
+            background-color: white;
+            color: black;
+            padding: 10px 10px; /* 20px arriba y abajo, 10px a los lados */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2vw 0; /* 2% del ancho de la pantalla arriba y abajo */
+        }
 
-    .right-side {
-      flex-basis: 35%;
-      overflow: hidden;
-      border-radius: 10px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 24px; /* Tamaño del título más pequeño */
+        }
 
-    .right-side img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
+        header h2 {
+            margin: 5px 0; /* Añadido un pequeño margen superior e inferior */
+            color: #006400; /* Verde oscuro brillante */
+            font-size: 18px; /* Tamaño del subtítulo más pequeño */
+        }
 
-    .section {
-      padding: 0px;
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2px; /* Ajustar el margen superior */
-    }
+        header img {
+            width: 80px;
+            height: 80px;
+        }
 
-    .section h2 {
-      font-size: 16px;
-      color: #333;
-      display: flex;
-      align-items: center; /* Centrar verticalmente el texto y el icono */
-    }
+        .textos {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px; /* 20px arriba y abajo, 10px a los lados */
+            background-color: #f0f0f0;
+            color: black;
+            margin: 5px 10px; /* 5px arriba y abajo, 10px a los lados */
+        }
 
-    .icon {
-      margin-right: 5px; /* Espacio entre el icono y el texto */
-    }
+        .textos p {
+            font-weight: bold; /* Texto en negrita */
+            margin: 5px; /* 5px arriba y abajo, 5px a los lados */
+        }
 
-    .download-button {
-      width: 90%;
-      margin: 5px auto; /* Ajustar el margen a 5px y centrar el botón */
-      display: block;
-      padding: 10px;
-      font-size: 16px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-align: center; /* Centrar el texto dentro del botón */
-    }
+        .boton-descarga {
+            background-color: #006400; /* Color verde oscuro */
+            color: white;
+            width: 90%; /* 90% de ancho */
+            padding: 15px; /* Espaciado interno */
+            text-align: center; /* Alineación del texto */
+            border: none; /* Quitar borde */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cursor de ratón */
+            font-size: 18px; /* Tamaño de la fuente */
+            text-decoration: none; /* Quitar subrayado */
+            display: block; /* Hacer que el botón sea un elemento de bloque para que ocupe todo el ancho */
+            margin: 10px auto; /* Margen superior e inferior de 20px, centrado horizontalmente */
+        }
 
-    .a download-button:hover {
-      background-color: #0056b3;
-    }
+        .icono-descarga {
+            width: 20px; /* Tamaño del icono más pequeño */
+            height: 20px;
+            margin-right: 5px; /* Espacio entre el icono y el texto */
+        }
 
-    .image-container {
-      width: 100%;
-      overflow-x: auto; /* Permitir desplazamiento horizontal */
-      white-space: nowrap; /* Evitar que las imágenes se dividan en varias líneas */
-      margin: 0 auto; /* Centrar el contenedor */
-    }
+        .contenedor-scroll {
+            overflow-x: auto; /* Desplazamiento horizontal */
+            white-space: nowrap; /* Evitar el salto de línea */
+            padding: 10px; /* Añadir un poco de espacio */
+            margin-bottom: 20px; /* Margen inferior */
+        }
 
-    .image-section {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px; /* Agregar espacio entre las imágenes */
-    }
+        .contenedor-scroll img {
+            width: 150px; /* Tamaño de las imágenes */
+            height: 200px;
+            margin-right: 10px; /* Margen derecho entre las imágenes */
+            border-radius: 10px; /* Bordes redondeados */
+        }
 
-    .image-section img {
-      width: 50px; /* Establecer el ancho de las imágenes */
-      height: 50px; /* Establecer la altura de las imágenes */
-      border-radius: 10px; /* Establecer las esquinas redondeadas */
-      margin-right: 10px; /* Agregar espacio entre las imágenes */
-    }
+        .descripcion {
+            background-color: #f0f0f0;
+            padding: 1px;
+            margin: 10px;
+            border-radius: 5px;
+        }
 
-    .image-section h3 {
-      margin: 0; /* Eliminar el margen predeterminado del título */
-    }
+        .galeria-titulo {
+            text-align: center;
+            margin-bottom: 5px; /* Espacio entre el título y las imágenes */
+        }
 
-    .image-info {
-      margin-right: 10px; /* Agregar margen entre el título y la imagen */
-    }
-  </style>
+        .contenedor-imagenes {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 20px 0; /* Ajustar el margen */
+            padding: 0 10px; /* Añadir un poco de espacio a los lados */
+            text-align: center; /* Alinear centro */
+        }
+
+        .imagen-galeria {
+            display: flex;
+            align-items: center;
+            margin: 10px 0; /* Ajustar el margen */
+        }
+
+        .imagen-galeria img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px; /* Bordes redondeados */
+        }
+
+        .titulo-imagen {
+            margin-left: 10px; /* Espacio entre la imagen y el título */
+        }
+
+        .titulo-imagen span {
+            font-weight: bold;
+        }
+
+        /* Nueva sección */
+        .otras-versiones {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .otras-versiones h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .otras-versiones-contenido {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .otras-versiones-imagen {
+            display: flex;
+            align-items: center;
+        }
+
+        .otras-versiones-imagen img {
+            width: 70px; /* Tamaño de la imagen */
+            height: 70px;
+            border-radius: 5px; /* Bordes redondeados */
+            margin-right: 10px; /* Espacio entre la imagen y el título */
+        }
+
+        .otras-versiones-texto {
+            flex: 1; /* El texto ocupa el espacio restante */
+        }
+
+        .otras-versiones-texto h4 {
+            font-weight: bold; /* Texto en negrita */
+            margin: 0; /* Quitar margen */
+        }
+
+        .otras-versiones-texto p {
+            margin: 0; /* Quitar margen */
+        }
+
+        .otras-versiones-texto span {
+            color: #006400; /* Color verde oscuro brillante */
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="left-side">MaxG!</div>
-    <div class="right-side"><img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen de muestra"></div>
-  </header>
-  
-  <div class="section">
-    <h2><i class="fas fa-download icon"></i>33 MB</h2>
-    <h2><i class="fas fa-users icon"></i> Público</h2>
-    <h2><i class="fas fa-gem icon" style="color: gold;"></i> Gratis</h2>
-  </div>
-
-  <a href="https://www.dropbox.com/scl/fi/rx2bhxd2bra61yicfauir/Maxgo-_Android-Story.apk?rlkey=vq04eiqj0z8d9df8zz786x41t&dl=1&pv=1">
-    <button class="download-button">Descarga</button>
-  </a>
-
-  <div class="image-container">
-    <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 1">
-    <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 2">
-    <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 3">
-    <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 4">
-    <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 5">
-    <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 6">
-    <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 7">
-  </div>
-
-  <div class="fourth-section">
-    <h2>Descripción</h2>
-    <p>Descripción de la cuarta sección. Puedes agregar aquí cualquier texto que desees mostrar.</p>
-  </div>
-
-  <div class="fifth-section">
-    <h2>Datos de Desarrollador</h2>
-    <div class="image-container">
-      <div class="image-section">
-        <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 1">
-        <div class="image-info">
-          <h3>Título de la Imagen 1</h3>
+    <header>
+        <div>
+            <h1>¡MaxGo!</h1>
+            <h2>TV y películas</h2>
         </div>
-      </div>
-      <div class="image-section">
-        <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 2">
-        <div class="image-info">
-          <h3>Título de la Imagen 2</h3>
-        </div>
-      </div>
-      <div class="image-section">
-        <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 3">
-        <div class="image-info">
-          <h3>Título de la Imagen 3</h3>
-        </div>
-      </div>
-      <div class="image-section">
-        <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 4">
-        <div class="image-info">
-          <h3>Título de la Imagen 4</h3>
-        </div>
-      </div>
-      <div class="image-section">
-        <img src="https://i.ibb.co/fY01xTg/1709661436033.png" alt="Imagen 5">
-        <div class="image-info">
-          <h3>Título de la Imagen 5</h3>
-        </div>
-      </div>
+        <img src=" https://i.ibb.co/fY01xTg/1709661436033.png " alt="Icono">
+    </header>
+    <div class="textos">
+        <p class="mb"><img class="icono-descarga" src="https://i.ibb.co/y0Qfm43/IMG-20240305-182156.png" alt="Icono de descarga">29,27 MB</p>
+        <p><img class="icono-descarga" src="https://i.ibb.co/gvJh8Pr/IMG-20240305-183050.png" alt="Icono de público"> Público</p>
+        <p><img class="icono-descarga" src="https://i.ibb.co/34x9GPf/IMG-20240305-183512.png" alt="Icono de gratis"> Gratis</p>
     </div>
-  </div>
+
+    <a href="https://www.dropbox.com/scl/fi/rx2bhxd2bra61yicfauir/Maxgo-_Android-Story.apk?rlkey=vq04eiqj0z8d9df8zz786x41t&dl=1&pv=1" class="boton-descarga">Descarga</a>
+
+    <div class="contenedor-scroll">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 1">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 2">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 3">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 4">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 5">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 6">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 7">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 8">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 9">
+        <img class="imagen-scroll" src="https://i.ibb.co/ysZ6s3M/1.jpg" alt="Imagen 10">
+    </div>
+    <div class="descripcion">
+        <h3>Descripción</h3>
+       <p>¡MaxGo! La mejor aplicación donde puedes ver películas,series todo en una sola aplicación. SIN ANUNCIOS que esperas para descargarla.🔥 </p>
+    </div>
+    <h3 class="galeria-titulo">Datos del Desarrollador</h3>
+
+    <div class="contenedor-imagenes">
+        <div class="imagen-galeria">
+            <img src="https://via.placeholder.com/60" alt="Imagen 1">
+            <div class="titulo-imagen">
+                <h4><span>Título 1</span></h4>
+            </div>
+        </div>
+
+        <div class="imagen-galeria">
+            <img src="https://via.placeholder.com/60" alt="Imagen 2">
+            <div class="titulo-imagen">
+                <h4><span>Título 2</span></h4>
+            </div>
+        </div>
+
+        <div class="imagen-galeria">
+            <img src="https://via.placeholder.com/60" alt="Imagen 3">
+            <div class="titulo-imagen">
+                <h4><span>Título 3</span></h4>
+            </div>
+        </div>
+
+<div class="imagen-galeria">
+            <img src="https://via.placeholder.com/60" alt="Imagen 4">
+            <div class="titulo-imagen">
+                <h4><span>Título 4</span></h4>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="otras-versiones">
+        <h3>Otras Versiones</h3>
+        <div class="otras-versiones-contenido">
+            <div class="otras-versiones-imagen">
+                <img src=" https://i.ibb.co/fY01xTg/1709661436033.png" alt="Otras Versiones">
+            </div>
+            <div class="otras-versiones-texto">
+                <h4><span>¡MaxGo!</span></h4>
+                <p><span>05-03-2024 </span></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
